@@ -28,8 +28,8 @@ function App() {
     return `${hr.toString().padStart(2, "0")}:${min
       .toString()
       .padStart(2, "0")}:${sec.toString().padStart(2, "0")}.${Math.floor(ms / 10)
-      .toString()
-      .padStart(2, "0")}`;
+        .toString()
+        .padStart(2, "0")}`;
   };
 
   const handleStart = () => {
@@ -55,11 +55,15 @@ function App() {
   };
 
   return (
-    <div className="py-5 text-center min-vh-100 text-dark" style={{ backgroundImage: 'url("https://png.pngtree.com/background/20230618/original/pngtree-24-hour-countdown-timer-with-3d-arrow-picture-image_3750325.jpg")', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}> 
-      <div className="card shadow-lg p-5 mx-auto stopwatch-card text-dark" style={{ maxWidth: '500px', borderRadius: '20px', backdropFilter: 'blur(10px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
-        <h2 className="mb-4 fw-bold text-primary">⏱ Stylish Stopwatch</h2>
+    <div className="py-5 text-center min-vh-100 text-dark" style={{ backgroundImage: 'url("background.jpg")', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
+      <div className="card shadow-lg p-5 mx-auto stopwatch-card text-dark" style={{ maxWidth: '500px', borderRadius: '20px', backdropFilter: 'blur(5px)', backgroundColor: 'rgba(255, 255, 255, 0.5)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
+        <h2 className="mb-4 fw-bold text-dark">
+          <i className="fas fa-stopwatch me-2 text"></i>
+          Stopwatch Clock
+        </h2>
 
-        <div className="clock-face mx-auto my-4 position-relative" style={{ backgroundImage: 'url("https://thumbs.dreamstime.com/b/chronometer-stopwatch-empty-click-face-d-render-illustration-77292223.jpg?w=768")', backgroundSize: 'cover', backgroundPosition: 'center', width: '220px', height: '220px', borderRadius: '50%' }}>
+
+        <div className="clock-face mx-auto my-4 position-relative" >
           <svg width="220" height="220">
             <defs>
               <radialGradient id="grad" cx="50%" cy="50%" r="50%">
@@ -76,17 +80,26 @@ function App() {
 
         <div className="d-flex justify-content-center gap-2 flex-wrap my-4">
           {!running ? (
-            <button className="btn btn-success btn-lg px-4 shadow" onClick={handleStart}>Start</button>
+            <button className="btn btn-success btn-lg px-3 shadow" onClick={handleStart}>
+              <i className="fas fa-play me-2"></i>Start
+            </button>
           ) : (
-            <button className="btn btn-warning btn-lg px-4 shadow" onClick={handlePause}>Pause</button>
+            <button className="btn btn-warning btn-lg px-3 shadow" onClick={handlePause}>
+              <i className="fas fa-pause me-2"></i>Pause
+            </button>
           )}
-          <button className="btn btn-danger btn-lg px-4 shadow" onClick={handleReset}>Reset</button>
-          <button className="btn btn-info btn-lg px-4 shadow text-white" onClick={handleLap} disabled={!running}>Lap</button>
+          <button className="btn btn-danger btn-lg px-3 shadow" onClick={handleReset}>
+            <i className="fas fa-undo me-2"></i>Reset
+          </button>
+          <button className="btn btn-info btn-lg px-3 shadow text-white" onClick={handleLap} disabled={!running}>
+            <i className="fas fa-flag-checkered me-2"></i>Lap
+          </button>
+
         </div>
 
         {laps.length > 0 && (
           <div className="lap-section">
-            <h5 className="text-secondary">Lap Times</h5>
+            <h5 className="text">Lap Times</h5>
             <ul className="list-group shadow-sm">
               {laps.map((lapTime, index) => (
                 <li key={index} className="list-group-item d-flex justify-content-between bg-light">
