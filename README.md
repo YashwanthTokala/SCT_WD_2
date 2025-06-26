@@ -20,7 +20,8 @@ A responsive and interactive stopwatch built using **ReactJS** as part of the Sk
 
 ## 📸 Screenshots
 
-*(Insert a screenshot of the app here if available)*
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/dd95d3f1-bbcd-43de-b379-1f636c756b88" />
+
 
 ## 📂 How to Run Locally
 
